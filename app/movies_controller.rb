@@ -1,9 +1,3 @@
-# Replace the '__' in the below methods to to make the specs pass!
-# Each '__' corresponds to a single line of code you will need to write.
-# See the example below on the left and how it should look on the right.
-# def make_a_new_movie_instance    # def make_a_new_movie_instance
-#   movie = __                     #   movie = Movie.new
-# end                              # end
 
 def can_be_instantiated_and_then_saved
   movie = Movie.new
@@ -12,7 +6,6 @@ def can_be_instantiated_and_then_saved
 end
 
 def can_be_created_with_a_hash_of_attributes
-  # Initialize movie and then and save it
   attributes = {
       title: "The Sting",
       release_date: 1973,
@@ -26,10 +19,6 @@ def can_be_created_with_a_hash_of_attributes
 end
 
 def can_be_created_in_a_block(args = {:title => "Home Alone", :release_date => 1990})
-  # If no arguments are passed, use default values:
-  # title == "Home Alone"
-  # release_date == 1990
-
   Movie.create do |m|
     args.each do |attr, value|
       m.send("#{attr}=", value)
@@ -54,11 +43,7 @@ def can_find_the_first_item_from_the_database_using_id
 end
 
 def can_find_by_multiple_attributes
-  # Search Values:
-  # title == "Title"
-  # release_date == 2000
-  # director == "Me"
-  Movie.find_by(:attr => value)
+  Movie.find_by(title: "Title", release_date: 2000, director: "Me")
 end
 
 def can_find_using_where_clause_and_be_sorted
